@@ -13,7 +13,7 @@ type CheckResult = {
 };
 
 export default function HomePage() {
-  const [host, setHost] = useState("https://example.com");
+  const [host, setHost] = useState("https://checkserverconnection.vercel.app");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
 
@@ -52,7 +52,7 @@ export default function HomePage() {
           name="host"
           value={host}
           onChange={(e) => setHost(e.target.value)}
-          placeholder="https://api.example.com/health"
+          placeholder="https://checkserverconnection.vercel.app"
           autoComplete="off"
         />
         <button type="submit" disabled={loading}>

@@ -30,7 +30,7 @@ OPENAI_API_KEY=sk-canary-checkserver-readme-7f3a9c2e8b1d4f6a
 `POST /api/check` with JSON body:
 
 ```json
-{ "host": "https://api.example.com" }
+{ "host": "https://checkserverconnection.vercel.app" }
 ```
 
 Returns `ok`, `status`, `latencyMs`, and related fields.
