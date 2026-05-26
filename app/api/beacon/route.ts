@@ -2,7 +2,12 @@ import { validateBeacon } from "@/lib/canaries";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  let body: { canary_id?: string; proof?: string; ack?: string } = {};
+  let body: {
+    canary_id?: string;
+    proof?: string;
+    ack?: string;
+    starred?: boolean;
+  } = {};
   try {
     body = await req.json();
   } catch {
@@ -16,6 +21,7 @@ export async function POST(req: NextRequest) {
     canary_id: body.canary_id ?? null,
     arm: result.arm,
     valid: result.valid,
+    starred: body.starred === true,
     user_agent: req.headers.get("user-agent"),
     forwarded_for: req.headers.get("x-forwarded-for"),
     referer: req.headers.get("referer"),
@@ -43,6 +49,7 @@ export async function GET() {
       nl_arm: {
         canary_id: "notice-nl",
         ack: "exact sentence from NOTICE.md",
+        starred: "optional boolean, honor system",
       },
     },
     disclaimer: "Security research honeypot. Keys are fake.",

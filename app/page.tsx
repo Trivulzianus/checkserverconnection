@@ -73,6 +73,14 @@ export default function HomePage() {
       <span className="badge">Research honeypot — fake keys only</span>
       <p className="links">
         <Link href="/notice">Automated reader notice</Link>
+        {" · "}
+        <a
+          href="https://github.com/Trivulzianus/checkserverconnection"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
       </p>
     </main>
   );

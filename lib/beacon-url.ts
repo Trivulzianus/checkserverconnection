@@ -1,6 +1,8 @@
+import { BEACON_URL } from "@/lib/site";
+
 /**
- * Production beacon URL for planted instructions.
- * VERCEL_PROJECT_PRODUCTION_URL is set on Vercel (e.g. my-app.vercel.app).
+ * Beacon URL for planted instructions. Uses Vercel env when deployed,
+ * falls back to the known production URL for local dev / static docs.
  */
 export function getBeaconUrl(): string {
   const host =
@@ -13,5 +15,5 @@ export function getBeaconUrl(): string {
     return `${protocol}://${host}/api/beacon`;
   }
 
-  return "https://YOUR_PROJECT.vercel.app/api/beacon";
+  return BEACON_URL;
 }
